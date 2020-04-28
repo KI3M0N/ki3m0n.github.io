@@ -1,0 +1,96 @@
+@font-face{
+    font-family: 'mont';
+    src: url(../Montserrat/Montserrat-Regular.ttf);
+}
+
+@function color($color-name){
+    @return map-get($colors, $color-name)
+}
+$borders: 15px;
+$padding: 25px;
+
+$colors: (
+    primary: #005dff,
+    accent: #FFF6BB,
+    primary-light: lighten(#005dff, 40%)
+);
+
+html,body{
+    margin:0;
+    height:100%;
+    width:100%;
+}
+
+body{
+    font-family: 'mont';
+    .background{
+        clip-path: polygon(100% 0, 100% 49%, 71% 100%, 0 100%, 0 0);
+        background-color: color(primary);
+        height:100%;
+        position:absolute;
+        z-index: -1;
+        width:100%;
+    }
+    header a{
+        color:white;
+        text-decoration:none;
+        display:block;
+        text-decoration: uppercase;
+        padding: $padding;
+    }
+}
+
+main{
+    section.card{
+        background: white;
+        padding:20px;
+        margin: 1em auto;
+        border-radius: $borders;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        width:80%;
+        
+        ul{
+            list-style-type:none; 
+            margin:0;  padding:0;
+            li{
+                margin-bottom:10px;
+                
+                span{
+                    position:absolute; 
+                    width:20px;
+                    height:20px;
+                    background: color(primary);
+                    border-radius:50%;
+                    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                }
+                strong{
+                    display:inline-block;
+                    margin-left: max(40px);
+                    margin-top:1px;
+                }
+            }
+        }
+    }
+    section.primary{
+        color:white;
+        padding: $padding;
+        text-align:center;
+        
+        h1{
+            font-size:3em;
+            margin-top:10px;
+            text-transform: uppercase;
+        }
+        p{
+            font-size:1.4em;
+        }
+        a{
+            background: white;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.2) ;
+
+            text-decoration:none;
+            border-radius:20px;
+            padding:10px;
+        }
+    }
+}
